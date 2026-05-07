@@ -83,9 +83,9 @@ export const metadata: Metadata = {
   },
 
   // ── Verification (fill in after Search Console setup) ─────────────────────
-  // verification: {
-  //   google: "YOUR_GOOGLE_VERIFICATION_TOKEN",
-  // },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
