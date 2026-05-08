@@ -84,7 +84,10 @@ export const metadata: Metadata = {
 
   // ── Verification (fill in after Search Console setup) ─────────────────────
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+    google: [
+      process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ?? "",
+      process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION_2 ?? "",
+    ],
   },
 };
 
