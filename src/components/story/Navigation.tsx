@@ -53,20 +53,20 @@ export default function Navigation() {
             : "bg-white/95 backdrop-blur-md border-b-4 border-black"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5">
+        <div className="max-w-6xl mx-auto px-4 lg:px-8 py-3">
           <div className="flex items-center justify-between">
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="text-xl md:text-2xl uppercase tracking-tight cursor-pointer"
+              className="text-base uppercase tracking-tight cursor-pointer"
             >
-              <span className="bg-black text-white px-4 py-2 border-4 border-black shadow-[4px_4px_0_0_rgba(255,0,107,1)]">
+              <span className="bg-black text-white px-3 py-1.5 border-4 border-black shadow-[4px_4px_0_0_rgba(255,0,107,1)] text-sm">
                 RS
               </span>
             </motion.button>
 
-            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <div className="hidden md:flex items-center gap-4 lg:gap-6">
               {navItems.map((item, idx) => (
                 <motion.a
                   key={item.name}
@@ -74,15 +74,15 @@ export default function Navigation() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className={`text-base uppercase tracking-wide transition-colors relative group ${
+                  className={`text-xs uppercase tracking-wide transition-colors relative group ${
                     item.name === "Contact"
-                      ? "bg-[#FF006B] text-white px-4 py-2 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)] hover:-translate-x-[2px] hover:-translate-y-[2px]"
+                      ? "bg-[#FF006B] text-white px-3 py-1.5 border-4 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] hover:-translate-x-[2px] hover:-translate-y-[2px]"
                       : "text-black hover:text-[#FF006B]"
                   }`}
                 >
                   {item.name}
                   {item.name !== "Contact" && (
-                    <span className="absolute -bottom-1 left-0 w-0 h-1 bg-[#FF006B] group-hover:w-full transition-all duration-300"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF006B] group-hover:w-full transition-all duration-300"></span>
                   )}
                 </motion.a>
               ))}
@@ -91,12 +91,12 @@ export default function Navigation() {
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileTap={{ scale: 0.9 }}
-              className="md:hidden bg-black border-4 border-black p-3 shadow-[4px_4px_0_0_rgba(255,0,107,1)]"
+              className="md:hidden bg-black border-4 border-black p-2 shadow-[4px_4px_0_0_rgba(255,0,107,1)]"
             >
               {isMenuOpen ? (
-                <X className="text-white" size={24} />
+                <X className="text-white" size={18} />
               ) : (
-                <Menu className="text-white" size={24} />
+                <Menu className="text-white" size={18} />
               )}
             </motion.button>
           </div>
@@ -123,22 +123,22 @@ export default function Navigation() {
               className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-white border-l-6 border-black z-50 md:hidden"
             >
               <motion.div
-                className="p-6 border-b-4 border-black flex justify-between items-center"
+                className="p-4 border-b-4 border-black flex justify-between items-center"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <span className="text-2xl uppercase">Menu</span>
+                <span className="text-lg uppercase">Menu</span>
                 <motion.button
                   onClick={() => setIsMenuOpen(false)}
                   whileTap={{ scale: 0.9 }}
-                  className="bg-black border-4 border-black p-2 shadow-[3px_3px_0_0_rgba(255,0,107,1)]"
+                  className="bg-black border-4 border-black p-1.5 shadow-[3px_3px_0_0_rgba(255,0,107,1)]"
                 >
-                  <X className="text-white" size={20} />
+                  <X className="text-white" size={16} />
                 </motion.button>
               </motion.div>
 
-              <div className="p-6 space-y-4">
+              <div className="p-4 space-y-3">
                 {navItems.map((item, idx) => (
                   <motion.a
                     key={item.name}
@@ -148,7 +148,7 @@ export default function Navigation() {
                     exit={{ opacity: 0, x: 50 }}
                     transition={{ delay: idx * 0.1 + 0.15, type: "spring" }}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-2xl uppercase py-3 border-b-3 border-black hover:text-[#FF006B] transition-colors"
+                    className="block text-lg uppercase py-2.5 border-b-2 border-black hover:text-[#FF006B] transition-colors"
                   >
                     {item.name}
                   </motion.a>
