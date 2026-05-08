@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 // ─── Change this to your real production domain once deployed ───────────────
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Rakesh Shrestha",
   },
   description:
-    "Rakesh Shrestha is a UI/UX Designer and Product Designer based in Kathmandu, Nepal. Specialising in Figma, user-centered design, edtech, and frontend development. 2× hackathon runner-up.",
+    "UI/UX & Product Designer in Kathmandu, Nepal. Figma expert, neobrutalist design, edtech focus. 2× hackathon runner-up. Available for freelance.",
   keywords: [
     "web designer graphic heavy ui creative kathmandu",
     "ui ux designer modern brutalism freelance kathmandu",
@@ -387,7 +388,7 @@ export const metadata: Metadata = {
     siteName: "Rakesh Shrestha Portfolio",
     title: "Rakesh Shrestha — UI/UX Designer & Product Designer | Kathmandu, Nepal",
     description:
-      "UI/UX Designer and Product Designer based in Kathmandu, Nepal. Figma expert, 2× hackathon runner-up, passionate about edtech and user-centered design.",
+      "UI/UX & Product Designer in Kathmandu, Nepal. Figma expert, neobrutalist design, edtech focus. 2× hackathon runner-up. Available for freelance.",
     images: [
       {
         url: "/og.png",          // place a 1200×630 image at public/og.png
@@ -403,7 +404,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Rakesh Shrestha — UI/UX Designer & Product Designer",
     description:
-      "UI/UX Designer based in Kathmandu, Nepal. Figma expert, 2× hackathon runner-up.",
+      "UI/UX & Product Designer in Kathmandu, Nepal. Figma expert, neobrutalist design. 2× hackathon runner-up.",
     images: ["/og.png"],
     // creator: "@yourhandle",   // add if you have a Twitter/X account
   },
@@ -430,9 +431,29 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Google Analytics — loads after page is interactive, doesn't block render */}
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
+      </body>
     </html>
   );
 }
