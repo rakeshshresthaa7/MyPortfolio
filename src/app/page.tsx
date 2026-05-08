@@ -6,8 +6,9 @@ import SkillsShowcase from "@/components/story/SkillsShowcase";
 import ProjectsGallery from "@/components/story/ProjectsGallery";
 import AchievementsSection from "@/components/story/AchievementsSection";
 import ContactStory from "@/components/story/ContactStory";
+import SeoKeywords from "@/components/SeoKeywords";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rakshshrestha.com.np";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rakeshshrestha.vercel.app";
 
 // ── JSON-LD: Person ──────────────────────────────────────────────────────────
 const personJsonLd = {
@@ -118,6 +119,7 @@ export default function Home() {
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <SeoKeywords />
         <ScrollProgress />
         <Navigation />
         <HeroStory />
