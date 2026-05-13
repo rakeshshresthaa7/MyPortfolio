@@ -54,17 +54,15 @@ export default function HeroStory() {
               <span className="uppercase text-xs tracking-wide">UI/UX Designer</span>
             </motion.div>
 
-            {/* Heading — full name in h1 for SEO, visually shows "Hi, I'm RAKESH" */}
+            {/* Heading */}
             <motion.h1
               className="text-4xl sm:text-5xl lg:text-6xl uppercase leading-none mb-3 lg:mb-5"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              {/* Screen-reader & SEO full name — visually hidden */}
-              <span className="sr-only">Rakesh Shrestha — UI/UX Designer</span>
-              <span aria-hidden="true" className="block">Hi, I&apos;m</span>
-              <span aria-hidden="true" className="block bg-black text-white px-3 py-1 lg:px-4 lg:py-2 inline-block border-4 lg:border-8 border-black shadow-[6px_6px_0_0_rgba(255,0,107,1)] lg:shadow-[10px_10px_0_0_rgba(255,0,107,1)] mt-2 lg:mt-3">
+              <span className="block">Hi, I&apos;m</span>
+              <span className="block bg-black text-white px-3 py-1 lg:px-4 lg:py-2 inline-block border-4 lg:border-8 border-black shadow-[6px_6px_0_0_rgba(255,0,107,1)] lg:shadow-[10px_10px_0_0_rgba(255,0,107,1)] mt-2 lg:mt-3">
                 RAKESH
               </span>
             </motion.h1>
@@ -135,7 +133,7 @@ export default function HeroStory() {
           {/* Mobile */}
           <div className="relative w-52 h-52 sm:w-64 sm:h-64 lg:hidden">
             <div className="w-full h-full border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] overflow-hidden bg-gradient-to-br from-[#FFE500] to-[#FF006B] relative">
-              <Image src="/profile.png" alt="Rakesh Shrestha - UI/UX Designer and Product Designer from Kathmandu Nepal" fill className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" priority />
+              <Image src="/profile.png" alt="Rakesh Shrestha" fill className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" priority />
             </div>
             <motion.div
               className="absolute -top-3 -right-3 bg-white border-4 border-black px-2 py-1 shadow-[3px_3px_0_0_rgba(180,255,0,1)] z-10"
@@ -163,7 +161,7 @@ export default function HeroStory() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="w-full max-w-sm mx-auto aspect-square border-8 border-black shadow-[16px_16px_0_0_rgba(0,0,0,1)] overflow-hidden bg-gradient-to-br from-[#FFE500] to-[#FF006B] relative">
-                <Image src="/profile.png" alt="Rakesh Shrestha - UI/UX Designer and Product Designer from Kathmandu Nepal" fill className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" priority />
+                <Image src="/profile.png" alt="Rakesh Shrestha" fill className="object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" priority />
               </div>
             </motion.div>
             <motion.div

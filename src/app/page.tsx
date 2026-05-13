@@ -15,57 +15,31 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Rakesh Shrestha",
-  givenName: "Rakesh",
-  familyName: "Shrestha",
-  alternateName: ["Rakesh Shrestha Designer", "Rakesh Shrestha UI UX"],
   url: SITE_URL,
   image: `${SITE_URL}/profile.png`,
   jobTitle: "UI/UX Designer & Product Designer",
   description:
-    "Rakesh Shrestha is a UI/UX Designer and Product Designer based in Kathmandu, Nepal. Specialising in Figma, neobrutalist design, edtech, and frontend development. 2× hackathon runner-up.",
+    "UI/UX Designer and Product Designer based in Kathmandu, Nepal. Specialising in Figma, user-centered design, edtech, and frontend development.",
   email: "rakesh.shresthaa7@gmail.com",
   telephone: "+977-9863664362",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Kathmandu",
-    addressRegion: "Bagmati",
     addressCountry: "NP",
   },
   sameAs: [
     "https://www.linkedin.com/in/rakesh-shrestha-2b9b34286",
     "https://github.com/rakeshshresthaa",
-    SITE_URL,
   ],
   knowsAbout: [
     "UI/UX Design",
     "Product Design",
     "Figma",
-    "Neobrutalist Design",
     "User Research",
-    "Wireframing",
     "Prototyping",
-    "Edtech Design",
     "React",
     "Next.js",
   ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Asia Pacific University",
-    alternateName: "APU",
-  },
-  award: [
-    "1st Runner-up — RelayHack x Tumlet (Game Design)",
-    "1st Runner-up — RelayHack x Aqore (HR Management System)",
-  ],
-  hasOccupation: {
-    "@type": "Occupation",
-    name: "UI/UX Designer",
-    occupationLocation: {
-      "@type": "City",
-      name: "Kathmandu",
-    },
-    skills: "Figma, User Research, Prototyping, Wireframing, Neobrutalist Design",
-  },
 };
 
 // ── JSON-LD: WebSite (enables Google Sitelinks Search Box if eligible) ───────

@@ -366,7 +366,7 @@ export const metadata: Metadata = {
   // metadataBase handles absolute URL resolution for all relative paths below.
   // The canonical is set per-page via alternates; the global fallback is the root.
   alternates: {
-    canonical: SITE_URL,
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -391,10 +391,10 @@ export const metadata: Metadata = {
       "UI/UX & Product Designer in Kathmandu, Nepal. Figma expert, neobrutalist design, edtech focus. 2× hackathon runner-up. Available for freelance.",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/og.png",          // place a 1200×630 image at public/og.png
         width: 1200,
         height: 630,
-        alt: "Rakesh Shrestha — UI/UX Designer & Product Designer | Kathmandu, Nepal",
+        alt: "Rakesh Shrestha — UI/UX Designer Portfolio",
       },
     ],
   },
@@ -405,7 +405,7 @@ export const metadata: Metadata = {
     title: "Rakesh Shrestha — UI/UX Designer & Product Designer",
     description:
       "UI/UX & Product Designer in Kathmandu, Nepal. Figma expert, neobrutalist design. 2× hackathon runner-up.",
-    images: ["/opengraph-image"],
+    images: ["/og.png"],
     // creator: "@yourhandle",   // add if you have a Twitter/X account
   },
 
