@@ -15,7 +15,7 @@ export default function SkillsShowcase() {
   const skillCategories = [
     { title: "Design Craft", icon: <Palette size={20} />, color: "bg-[#FFE500]", skills: ["User Flows", "Wireframing", "Prototyping", "Usability Testing", "Information Architecture", "Design Systems", "Mobile-first Design"], description: "Creating intuitive experiences that users love" },
     { title: "Tools & Tech", icon: <Layers size={20} />, color: "bg-[#00F0FF]", skills: ["Figma (Advanced)", "Canva (Advanced)", "Auto Layout", "Components & Variants", "Google Workspace", "Notion", "GitHub"], description: "Mastering the tools that bring ideas to life" },
-    { title: "Development", icon: <Code size={20} />, color: "bg-[#B4FF00]", skills: ["HTML", "CSS", "JavaScript", "React", "Next.js"], description: "Bridging design and code for seamless implementation" },
+    { title: "Development", icon: <Code size={20} />, color: "bg-[#B4FF00]", skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Node.js"], description: "Bridging design and code for seamless implementation" },
     { title: "Soft Skills", icon: <Users size={20} />, color: "bg-[#FF006B]", skills: ["Communication", "Collaboration", "Problem-solving", "Attention to detail", "Adaptability"], description: "Working with teams to deliver impact" },
   ];
 

@@ -14,7 +14,8 @@ export default function AchievementsSection() {
   const achievements = [
     { title: "RelayHack x Tumlet", award: "1st Runner-up", project: "Game Design", icon: <Trophy size={32} />, description: "Led UI/UX for game concept with interactive Figma prototypes", color: "bg-[#FF006B]", shine: true },
     { title: "RelayHack x Aqore", award: "1st Runner-up", project: "HR Management System", icon: <Trophy size={32} />, description: "Designed core HR workflows and high-fidelity UI for demo", color: "bg-[#00F0FF]", shine: true },
-    { title: "3 Hackathons", award: "Participated", project: "Team Collaboration", icon: <Zap size={32} />, description: "Prototyped solutions under tight deadlines with cross-functional teams", color: "bg-[#FFE500]", shine: false },
+    { title: "JunctionX Kathmandu", award: "Participated", project: "International Hackathon", icon: <Zap size={32} />, description: "Competed in one of Nepal's biggest international hackathons, designing under pressure with a cross-functional team", color: "bg-[#B4FF00]", shine: false },
+    { title: "TechSpark 2.0", award: "Participated", project: "Team Collaboration", icon: <Zap size={32} />, description: "Prototyped solutions under tight deadlines with cross-functional teams", color: "bg-[#FFE500]", shine: false },
   ];
 
   const stats = [
@@ -49,7 +50,7 @@ export default function AchievementsSection() {
         {/* Achievement cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {achievements.map((achievement, idx) => (
-            <motion.div key={idx} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, delay: idx * 0.15 }} whileHover={{ y: -6, scale: 1.03 }} className={`${achievement.color} border-4 border-black p-5 shadow-[6px_6px_0_0_rgba(0,0,0,1)] relative overflow-hidden group`}>
+            <motion.div key={idx} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, delay: idx * 0.15 }} whileHover={{ y: -6, scale: 1.03 }} className={`${achievement.color} border-4 border-black p-5 shadow-[6px_6px_0_0_rgba(0,0,0,1)] relative overflow-hidden group ${idx === 3 ? "md:col-start-2" : ""}`}>
               {achievement.shine && (
                 <motion.div className="absolute top-0 right-0 w-24 h-24 bg-white/30 rounded-full blur-2xl pointer-events-none" animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 2, repeat: Infinity }} />
               )}

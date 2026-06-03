@@ -12,9 +12,9 @@ export default function ProjectsGallery() {
   const y = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [80, 0, 0, -80]);
 
   const projects = [
-    { title: "Gunasho (e Suchana)", category: "Gov-Tech Platform", type: "Web + Mobile", icon: <Smartphone size={18} />, tagline: "Empowering citizens to report local issues", description: "Redesigned a digital grievance platform for local government, creating intuitive user flows for complaint submission and tracking.", impact: ["Mobile-first design", "Clear navigation", "Real-time tracking"], color: "bg-[#FFE500]", status: "In Development" },
-    { title: "BigAI Portfolio", category: "Corporate Website", type: "Web", icon: <Monitor size={18} />, tagline: "Showcasing AI innovation through design", description: "Designed a complete company portfolio site with emphasis on services, case studies, and brand identity.", impact: ["Consistent design system", "Responsive layouts", "Developer-friendly handoff"], color: "bg-[#FF006B]", status: "In Development" },
-    { title: "E Library System", category: "Education Platform", type: "Web App", icon: <Globe size={18} />, tagline: "Making library management effortless", description: "End-to-end UX design for book management, borrowing workflows, and admin dashboards.", impact: ["Interactive prototypes", "Admin dashboards", "User-tested flows"], color: "bg-[#00F0FF]", status: "In Development" },
+    { title: "Gunasho (e Suchana)", category: "Gov-Tech Platform", type: "Web + Mobile", icon: <Smartphone size={18} />, tagline: "Empowering citizens to report local issues", description: "Redesigned a digital grievance platform for local government, creating intuitive user flows for complaint submission and tracking.", impact: ["Mobile-first design", "Clear navigation", "Real-time tracking"], color: "bg-[#FFE500]", status: "Deployed", links: { app: "https://play.google.com/store/apps/details?id=com.mspsolution.new_gunaso_app&pcampaignid=web_share", web: "https://gulmikaligandaki.gunasho.com/" } },
+    { title: "BigAI Portfolio", category: "Corporate Website", type: "Web", icon: <Monitor size={18} />, tagline: "Showcasing AI innovation through design", description: "Designed a complete company portfolio site with emphasis on services, case studies, and brand identity.", impact: ["Consistent design system", "Responsive layouts", "Developer-friendly handoff"], color: "bg-[#FF006B]", status: "In Development", links: undefined },
+    { title: "E Library System", category: "Education Platform", type: "Web App", icon: <Globe size={18} />, tagline: "Making library management effortless", description: "End-to-end UX design for book management, borrowing workflows, and admin dashboards.", impact: ["Interactive prototypes", "Admin dashboards", "User-tested flows"], color: "bg-[#00F0FF]", status: "In Development", links: undefined },
   ];
 
   const practiceProjects = [
@@ -64,15 +64,41 @@ export default function ProjectsGallery() {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-row lg:flex-col gap-3 justify-between">
-                  <div className="flex-1 bg-white border-4 border-black p-4 shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
-                    <p className="text-xs uppercase mb-1">Type</p>
-                    <p className="text-base uppercase">{project.type}</p>
+                <div className="flex flex-col gap-2">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="bg-white border-4 border-black p-3 shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+                      <p className="text-xs uppercase opacity-60 mb-1">Type</p>
+                      <p className="text-xs uppercase font-bold leading-tight">{project.type}</p>
+                    </div>
+                    {project.status && (
+                      <div className="bg-black text-white border-4 border-black p-3 shadow-[4px_4px_0_0_rgba(255,255,255,1)]">
+                        <p className="text-xs uppercase opacity-60 mb-1">Status</p>
+                        <p className="text-xs uppercase font-bold leading-tight">{project.status}</p>
+                      </div>
+                    )}
                   </div>
-                  <div className="flex-1 bg-black text-white border-4 border-black p-4 shadow-[4px_4px_0_0_rgba(255,255,255,1)]">
-                    <p className="text-xs uppercase mb-1 opacity-70">Status</p>
-                    <p className="text-base uppercase">{project.status}</p>
-                  </div>
+                  {project.links && (
+                    <div className="flex flex-col gap-2 mt-1">
+                      {project.links.web && (
+                        <a href={project.links.web} target="_blank" rel="noopener noreferrer" className="bg-black text-white border-4 border-black px-4 py-3 shadow-[4px_4px_0_0_rgba(255,255,255,1)] flex items-center justify-between hover:bg-gray-900 transition-colors group/link">
+                          <div className="flex items-center gap-2">
+                            <Globe size={14} />
+                            <span className="text-xs uppercase font-bold">View Web App</span>
+                          </div>
+                          <ExternalLink size={12} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
+                      {project.links.app && (
+                        <a href={project.links.app} target="_blank" rel="noopener noreferrer" className="bg-white border-4 border-black px-4 py-3 shadow-[4px_4px_0_0_rgba(0,0,0,1)] flex items-center justify-between hover:bg-gray-100 transition-colors group/link">
+                          <div className="flex items-center gap-2">
+                            <Smartphone size={14} />
+                            <span className="text-xs uppercase font-bold">Play Store</span>
+                          </div>
+                          <ExternalLink size={12} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>

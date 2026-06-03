@@ -4,6 +4,13 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { Briefcase, GraduationCap, Lightbulb, Heart } from "lucide-react";
 
+const iconMap: Record<string, React.ReactNode> = {
+  heart: <Heart size={16} />,
+  lightbulb: <Lightbulb size={16} />,
+  briefcase: <Briefcase size={16} />,
+  graduation: <GraduationCap size={16} />,
+};
+
 export default function JourneyTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
@@ -13,10 +20,11 @@ export default function JourneyTimeline() {
   const contentY = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [50, 0, 0, -50]);
 
   const journeySteps = [
-    { icon: <Heart size={16} />, title: "The Spark", description: "Fell in love with design thinking and user-centered problem solving", color: "bg-[#FF006B]", year: "Beginning" },
-    { icon: <Lightbulb size={16} />, title: "Learning & Growing", description: "Mastered Figma, Canva, and frontend technologies to bring designs to life", color: "bg-[#FFE500]", year: "Journey" },
-    { icon: <Briefcase size={16} />, title: "Real Impact", description: "Contributed to real-world projects solving problems for local government and businesses", color: "bg-[#00F0FF]", year: "Today" },
-    { icon: <GraduationCap size={16} />, title: "Continuous Growth", description: "Pursuing BIT at APU while staying curious about edtech and design systems", color: "bg-[#B4FF00]", year: "Future" },
+    { iconKey: "heart", title: "The Spark", description: "Fell in love with design thinking and user-centered problem solving", color: "bg-[#FF006B]", year: "Beginning" },
+    { iconKey: "lightbulb", title: "Figma Basics", description: "Completed Figma fundamentals in 1st semester — mastered frames, components, and basic prototyping to start building real designs", color: "bg-[#FFE500]", year: "1st Semester" },
+    { iconKey: "lightbulb", title: "Advanced Design", description: "Levelled up in 2nd semester with advanced Figma — design systems, auto layout, complex prototypes, and UX research methods", color: "bg-[#00F0FF]", year: "2nd Semester" },
+    { iconKey: "briefcase", title: "Internship @ MSP Solution", description: "Joined MSP Solution in 3rd semester as a UI/UX design intern — contributed to real products including the e-Suchana grievance platform", color: "bg-[#B4FF00]", year: "3rd Semester" },
+    { iconKey: "graduation", title: "Continuous Growth", description: "Pursuing BIT at APU while staying curious about edtech and design systems", color: "bg-[#FF006B]", year: "Future" },
   ];
 
   return (
@@ -50,7 +58,7 @@ export default function JourneyTimeline() {
                 >
                   <div className="flex items-start gap-3" style={{ flexDirection: idx % 2 === 0 ? "row-reverse" : "row" }}>
                     <div className="bg-black border-2 border-black p-2.5 flex-shrink-0">
-                      <div className="text-white">{step.icon}</div>
+                      <div className="text-white">{iconMap[step.iconKey]}</div>
                     </div>
                     <div>
                       <p className="text-xs uppercase tracking-wide mb-1 opacity-70">{step.year}</p>
