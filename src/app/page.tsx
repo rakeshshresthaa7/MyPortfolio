@@ -7,6 +7,7 @@ import ProjectsGallery from "@/components/story/ProjectsGallery";
 import AchievementsSection from "@/components/story/AchievementsSection";
 import ContactStory from "@/components/story/ContactStory";
 import SeoKeywords from "@/components/SeoKeywords";
+import ChatClient from "@/components/chat/ChatClient";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rakeshshrestha.vercel.app";
 
@@ -128,6 +129,7 @@ export default function Home() {
         <ProjectsGallery />
         <AchievementsSection />
         <ContactStory />
+        <ChatClient />
       </div>
     </>
   );
