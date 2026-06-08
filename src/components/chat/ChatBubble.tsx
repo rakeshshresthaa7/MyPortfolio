@@ -14,10 +14,10 @@ export const ChatBubble = ({ message }: ChatBubbleProps) => {
       }`}
     >
       <div
-        className={`max-w-xs lg:max-w-md px-4 py-3 rounded-lg ${
+        className={`max-w-[85vw] sm:max-w-xs lg:max-w-md px-4 py-3 rounded-none border-4 border-black ${
           isAssistant
-            ? "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-            : "bg-blue-500 text-white"
+            ? "bg-[#e7e7e7] text-black"
+            : "bg-[#121212] text-white"
         }`}
       >
         <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">

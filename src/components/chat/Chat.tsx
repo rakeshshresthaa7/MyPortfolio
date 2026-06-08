@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { MessageCircle, X } from "lucide-react";
 import { useChat } from "@/hooks/useChat";
 import { ChatBubble } from "./ChatBubble";
 import { ChatInput } from "./ChatInput";
@@ -41,19 +42,21 @@ export const Chat = () => {
   return (
     <>
       {/* Chat Widget Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 w-14 h-14 rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600 transition-all duration-200 flex items-center justify-center z-40 hover:scale-110"
-        aria-label="Open chat"
-      >
-        <span className="text-lg font-bold">💬</span>
-      </button>
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-4 right-4 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#f8e9aa] text-black border-4 border-black shadow-[8px_8px_0_rgba(0,0,0,0.22)] hover:bg-[#ffe67f] transition-all duration-200 flex items-center justify-center z-40 hover:scale-110"
+          aria-label="Open chat"
+        >
+          <MessageCircle className="h-5 w-5 sm:h-7 sm:w-7" />
+        </button>
+      )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 w-96 h-[600px] bg-white dark:bg-gray-900 rounded-lg shadow-2xl flex flex-col z-40 border border-gray-200 dark:border-gray-700 animate-in slide-in-from-bottom-4">
+        <div className="fixed bottom-4 right-4 w-[min(95vw,24rem)] h-[min(90vh,600px)] bg-[#fdf8ee] rounded-xl border-4 border-black shadow-[18px_18px_0_rgba(0,0,0,0.22)] flex flex-col z-40 animate-in slide-in-from-bottom-4">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-t-lg">
+          <div className="flex items-center justify-between p-4 border-b-4 border-black bg-[#f6d76e] text-black rounded-t-xl">
             <div>
               <h3 className="font-semibold">Rakesh's AI Assistant</h3>
               <p className="text-xs opacity-90">Ask me anything about Rakesh</p>
@@ -63,7 +66,7 @@ export const Chat = () => {
                 setIsOpen(false);
                 clearMessages();
               }}
-              className="p-1 hover:bg-blue-700 rounded-lg transition-colors"
+              className="p-1 rounded-none border-4 border-black bg-[#f0c33f] hover:bg-[#ffd055] transition-colors"
               aria-label="Close chat"
             >
               <span className="text-base">×</span>
@@ -71,7 +74,7 @@ export const Chat = () => {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-800">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fffdf7]">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full space-y-4">
                 <div className="text-center space-y-2">
@@ -92,7 +95,7 @@ export const Chat = () => {
                       <button
                         key={suggestion.id}
                         onClick={() => handleSuggestionClick(suggestion.question)}
-                        className="text-left text-xs p-2 rounded-lg bg-blue-100 hover:bg-blue-200 dark:bg-blue-900 dark:hover:bg-blue-800 text-blue-900 dark:text-blue-100 transition-colors"
+                        className="text-left text-xs p-3 rounded-none border-4 border-black bg-[#fff3a5] hover:bg-[#ffe676] text-black transition-colors"
                       >
                         {suggestion.question}
                       </button>

@@ -20,7 +20,7 @@ export const ChatInput = ({ onSubmit, isLoading, onStop }: ChatInputProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex gap-2 p-3 border-t border-gray-200 dark:border-gray-700"
+      className="flex gap-2 p-3 border-t-4 border-black bg-[#faf1d6]"
     >
       <input
         type="text"
@@ -28,13 +28,13 @@ export const ChatInput = ({ onSubmit, isLoading, onStop }: ChatInputProps) => {
         onChange={(e) => setInput(e.target.value)}
         placeholder="Ask me about Rakesh..."
         disabled={isLoading}
-        className="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+        className="flex-1 px-4 py-2 rounded-none border-4 border-black bg-white text-black placeholder:text-black/40 focus:outline-none focus:ring-0 disabled:opacity-50"
       />
       {isLoading ? (
         <button
           type="button"
           onClick={onStop}
-          className="p-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition-colors"
+          className="p-2 rounded-none border-4 border-black bg-[#dc2626] text-white hover:bg-[#ef4444] transition-colors"
           title="Stop"
         >
           <span className="text-base">■</span>
@@ -43,7 +43,7 @@ export const ChatInput = ({ onSubmit, isLoading, onStop }: ChatInputProps) => {
         <button
           type="submit"
           disabled={!input.trim()}
-          className="p-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-2 rounded-none border-4 border-black bg-[#ff8b00] text-black hover:bg-[#ff9f2a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           title="Send"
         >
           <span className="text-base">➤</span>
