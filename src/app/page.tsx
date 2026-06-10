@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import ScrollProgress from "@/components/story/ScrollProgress";
 import Navigation from "@/components/story/Navigation";
 import HeroStory from "@/components/story/HeroStory";
@@ -11,16 +12,43 @@ import ChatClientShell from "@/components/chat/ChatClientShell";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rakeshshrestha.vercel.app";
 
+// ── Page-level metadata — overrides layout defaults for the homepage ─────────
+// Google uses the <title> tag as the primary signal for name-based searches.
+// Leading with the full name ensures "Rakesh" and "Rakesh Shrestha" queries
+// surface this page at the top.
+export const metadata: Metadata = {
+  title: "Rakesh Shrestha — UI/UX Designer & Product Designer | Portfolio",
+  description:
+    "Rakesh Shrestha is a UI/UX Designer and Product Designer based in Kathmandu, Nepal. " +
+    "Specialising in neobrutalist design, Figma, edtech, and user-centered experiences. " +
+    "2× hackathon runner-up. Available for freelance.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Rakesh Shrestha — UI/UX Designer & Product Designer | Portfolio",
+    description:
+      "Rakesh Shrestha is a UI/UX Designer and Product Designer based in Kathmandu, Nepal. " +
+      "Neobrutalist design, Figma expert, edtech focus. 2× hackathon runner-up.",
+    url: SITE_URL,
+    siteName: "Rakesh",
+  },
+};
+
 // ── JSON-LD: Person ──────────────────────────────────────────────────────────
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Rakesh Shrestha",
+  givenName: "Rakesh",
+  familyName: "Shrestha",
+  alternateName: ["Rakesh", "Rakesh S"],
   url: SITE_URL,
   image: `${SITE_URL}/profile.png`,
   jobTitle: "UI/UX Designer & Product Designer",
   description:
-    "UI/UX Designer and Product Designer based in Kathmandu, Nepal. Specialising in Figma, user-centered design, edtech, and frontend development.",
+    "Rakesh Shrestha is a UI/UX Designer and Product Designer based in Kathmandu, Nepal. " +
+    "Specialising in Figma, neobrutalist design, user-centered design, edtech, and frontend development.",
   email: "rakesh.shresthaa7@gmail.com",
   telephone: "+977-9863664362",
   address: {
@@ -47,7 +75,7 @@ const personJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Rakesh Shrestha Portfolio",
+  name: "Rakesh",
   url: SITE_URL,
   description:
     "Portfolio of Rakesh Shrestha — UI/UX Designer & Product Designer based in Kathmandu, Nepal.",
